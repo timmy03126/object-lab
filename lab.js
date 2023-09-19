@@ -6,7 +6,11 @@
 
 //Code here
 
-
+let me = {
+  name: `Timmy`,
+  age: `26`,
+}
+console.log(me)
 
 //////////////////////////// PROBLEM 2 ////////////////////////////
 
@@ -17,20 +21,27 @@
 
 //Code here
 
-
+let dog = {
+  name: `Billy`,
+  color: `blue`,
+  age: 5,
+  goodBoy: true,
+}
+console.log(dog)
 
 //////////////////////////// PROBLEM 3 ////////////////////////////
 /* Print out the name of the dog you created in problem 2 using dot-notation. */
 
 //Code here
 
-
+console.log(dog.name)
 
 //////////////////////////// PROBLEM 4 ////////////////////////////
 /* Print out the color of the dog you created in problem 2 using bracket-notation. */
 
 //Code here
 
+console.log(dog[`color`])
 
 
 //////////////////////////// PROBLEM 5 ////////////////////////////
@@ -41,12 +52,24 @@
 
 //Code here
 
+let favoriteThings = {
+  band: `The Band Camino`,
+  food: `Enchiladas`,
+  person: `Ed`,
+  book: `The Hobbit`,
+  movie: `Whiplash`,
+  holiday: `Halloween`,
+}
 
+console.log(favoriteThings)
 /*
   After you've made your object, use bracket or dot notation to add another key named 'car' with the value being your favorite car and then another key named 'show' with the value being your favorite show.
 */
 
 //Code here
+favoriteThings.car = "Challenger"
+favoriteThings.show = "Parks and Recreation"
+
 
 
 /*
@@ -55,8 +78,9 @@
 */
 
 //Code here
-
-
+favoriteThings.food = "Chicken Nuggets"
+favoriteThings.book = "Harry Potter"
+console.log(favoriteThings)
 //////////////////////////// PROBLEM 6 ////////////////////////////
 
 // Do not edit the code below.
@@ -74,6 +98,7 @@ var carDetails = {
 
 //Code Here
 
+let {color: carColor , make: carMake, model: carModel, year: carYear} = carDetails
 
 
 //////////////////////////// PROBLEM 7 ////////////////////////////
@@ -83,16 +108,16 @@ var carDetails = {
   Use object destructuring to save the object properties to new variables. 
   The property names are firstName, lastName, and title.
 */
+let myObj = {firstName: `Timothy`, lastName: `Childs`, title: `Student`}
 
-function greeting( obj ) {
+function greeting(obj) {
   //Code Here
-  
+let {firstName, lastName, title} = obj
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
 }
-
-
+console.log(greeting(myObj))
 
 //////////////////////////// PROBLEM 8 ////////////////////////////
 
@@ -105,8 +130,17 @@ function greeting( obj ) {
 */
 
 //Code Here
-
-
+let pop = {
+  utah: 1,
+  california: 2,
+  texas: 3,
+  arizona: 4
+}
+function totalPopulation(pop) {
+  let {utah, california, texas, arizona} = pop
+  return utah + california + texas + arizona
+}
+console.log(totalPopulation(pop))
 
 //////////////////////////// PROBLEM 9 ////////////////////////////
 
@@ -119,8 +153,19 @@ function greeting( obj ) {
 */
 
 //Code Here
+let foodObject = {
+  carb: `bread`,
+  fat: `butter`,
+  protein: `meat`
+}
 
-
+function ingredients (fo) {
+  let {carb, fat, protein} = fo
+  let array = []
+  array.push(carb, fat, protein)
+  return array
+}
+console.log(ingredients(foodObject))
 
 //////////////////////////// PROBLEM 10 ////////////////////////////
 // Do not edit the code below.
@@ -141,7 +186,9 @@ var user = {
 */
 
 //Code Here
-
+user.name = `Bryan G. Smith`;
+user.email = `bryan.smith@devmounta.in`;
+console.log(user)
 
 //////////////////////////// PROBLEM 11 ////////////////////////////
 /*
@@ -149,8 +196,8 @@ var user = {
 */
 
 //Code Here
-
-
+delete user.age
+console.log(user)
 //////////////////////////// PROBLEM 12 ////////////////////////////
 /*
   Create a class called 'Cat'. Make sure to call your constructor, and require these 3 parameters: name, age, color.
@@ -160,8 +207,15 @@ var user = {
 
 //Code here
 
-
-
+class Cat {
+  constructor(name, age, color) {
+    this.catName = name;
+    this.catAge = age;
+    this.catColor = color;
+  }
+}
+let furry = new Cat(`Furry`, 3, `grey`)
+console.log(furry.catName)
 //////////////////////////// PROBLEM 13 ////////////////////////////
 /*
   Create a class called 'Wizard'. Make sure to call your constructor, and require these 3 parameters: name, age, favoriteSpell.
@@ -172,6 +226,18 @@ var user = {
 
 //Code here
 
+class Wizard {
+  constructor(name, age, favoriteSpell) {
+    this.wizardName = name;
+    this.wizardAge = age;
+    this.wizardSpell = favoriteSpell;
+  } castSpell () {
+    console.log(`${this.wizardName} has cast ${this.wizardSpell}`)
+  }
+}
+
+let Oz = new Wizard(`Oz`, 54, `invisibilty`)
+Oz.castSpell()
 //////////////////////////// PROBLEM 14 ////////////////////////////
 /*
     Write a class called Phone. We'll use it as if we were creating
@@ -196,7 +262,16 @@ var user = {
 */
 
 //Code Here
-
+class Phone {
+  constructor (brand, model, storage, color, price) {
+    this.phoneBrand = brand;
+    this.phoneModel = model;
+    this.phoneStorage = storage;
+    this.phoneColor = color;
+    this.phonePrice = price;
+    this.sold = false;
+  }
+}
   
 /*
     Next make three new phone instances using your class.
